@@ -10,11 +10,18 @@
 <body>
   {% include 'navbar.html' %}
   <div class="container mt-5 pt-5 text-center">
-    <h1>Upload Image for Prediction</h1>
-    <form action="/inspect" method="post" enctype="multipart/form-data" class="mt-4">
-      <input type="file" name="image" accept="image/*" class="form-control mb-3" required>
-      <button type="submit" class="btn btn-primary">Predict</button>
-    </form>
+   <!-- Predict page -->
+<h1>Upload Image for Prediction</h1>
+<form action="/inspect" method="post" enctype="multipart/form-data">
+  <input type="file" name="image" accept="image/*" class="form-control mb-3" required>
+  <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+
+{% if result %}
+  <h5 class="mt-4">Predicted: {{ result }}</h5>
+  <img src="{{ image_url }}" class="img-thumbnail mt-2" style="max-width:200px;" alt="Uploaded image">
+{% endif %}
+
   </div>
 </body>
 </html>
