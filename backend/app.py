@@ -11,7 +11,9 @@ app = Flask(
 )
 
 # ✅ Load your trained model
-model = load_model('fruit_model.h5')
+model_path = os.path.join(os.path.dirname(__file__), 'fruit_model.h5')
+model = load_model(model_path)
+
 img_height, img_width = 224, 224
 
 # ✅ Define your classes list (order must match training)
